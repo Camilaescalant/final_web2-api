@@ -8,4 +8,9 @@ router.get("/info/:idUser", async function (req, res) {
     const data = await user.getUserById(req.params.idUser)
     return res.send(data)
 });
+
+router.put('/info/:idUser', async function (req, res){
+    const data= await user.updateChanges(req.params.idUser, req.body)
+})
+
 module.exports = router;
