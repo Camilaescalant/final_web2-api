@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post(
   "/register",
-  //VERIFICAMOS FORMATO
+  //VERIFACAMOS FORMATO
   body("email").isEmail(),
   body("password").isLength({ min: 6 }),
   async function (req, res) {
@@ -25,7 +25,7 @@ router.post(
           return err.toString();
         });
     } else {
-      return res.status(400).send("El email ya está registrado");
+      return res.status(400).send("El email ya esta registrado");
     }
   }
 );
