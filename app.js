@@ -13,7 +13,7 @@ app.get("/api", (req, res) => {
   const path = `/api/item/${v4()}`;
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-  res.end("Hello! Go to item:");
+  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
 });
 const setContext = (req, res, next) => {
   if (!req.context) req.context = {};
@@ -23,7 +23,7 @@ app.use(setContext);
 
 app.get("/api/item/:slug", (req, res) => {
   const { slug } = req.params;
-  res.end("Item:");
+  res.end(`Item: ${slug}`);
 });
 
 //Defino las rutas
